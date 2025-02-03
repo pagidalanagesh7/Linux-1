@@ -1,0 +1,1319 @@
+
+Linux
+======
+
+
+Demo
+====
+-->SDLC
+--> Agile Meth
+--> DevOps tools
+
+
+
+
+
+Linux class 1
+==============
+
+
+lab setup
+---------
+
+1. Create AWS account 
+
+link: https://docs.google.com/presentation/d/12kD5Rs9MEpfGMqweTB0kTGzXKAz-6N9L/edit?usp=sharing&ouid=111596827579688305692&rtpof=true&sd=true
+
+
+2. Login into your AWS account
+
+3. Launch an EC2 m/c in AWS cloud [server]
+
+4. Connect to that server from local
+
+
+pwd  ---> print working dir
+
+ls
+
+who
+whoami
+
+
+
+SSH TOOLS
+=========
+1. Gitbash   ----> class  : https://git-scm.com/downloads
+2. putty
+3. super putty
+4. MobXterm
+5. Terminal (mac)
+
+
+Gitbash[windows]--ssh-->Ec2[AWS]
+
+
+
+
+
+
+Introduction to Linux
+---------------------
+--> Operating system
+--> Open Source
+--> 1991--> Linus Torlvads
+--> Multi tasking and Multi user
+--> Case sensitive OS
+
+
+Distibrutions/flavors
+======================
+1. Redhat
+2. Ubuntu
+3. CentoS
+4. Debian
+4. Suse Linux
+etc
+-------------------------------------------
+
+
+Linux directory structure
+==========================
+
+/         
+├── bin
+├── boot
+├── dev
+├── etc
+├── home
+│   ├── user1
+│   ├── user2
+│   └── ...
+├── lib
+├── opt
+├── proc
+├── root
+├── sbin
+├── tmp
+
+
+/ (Root Directory): The top-level directory that contains all other directories.
+
+/bin: Contains essential binary executables (commands) that are required for basic system operation, available for all users (e.g., ls, cp).
+
+/sbin: Contains system binaries, commands that are typically used by the superuser for system maintenance and configuration.
+
+
+/etc: Houses configuration files for the system and installed applications. This directory is critical for system administration.
+
+/home: Contains home directories for all users. Each user has their own subdirectory here (e.g., /home/user1).
+
+
+/dev: Contains device files, which represent hardware components (e.g., hard drives, USB devices) as files.
+
+
+/root: The home directory for the root user (superuser).
+
+/opt: Used for optional software packages that are not part of the standard distribution, often third-party applications.
+
+
+/lib: Contains shared libraries needed by the binaries in /bin and /sbin. 
+
+/proc: A virtual filesystem that provides information about running processes and system information. Files here are generated dynamically.
+
+/tmp: A directory for temporary files. It is often cleared on reboot.
+
+
+
+NOTE: once your practice is done , please keep in stopped state.
+
+IQ] what is the diff between bin and sbin?
+
+--> /bin: Basic commands available to all users.
+
+EX: ls, cat, cp, mv, rm, etc.
+
+--> /sbin: System management commands, mostly for the root user.
+
+EX: shutdown, reboot, ifconfig, mount, fsck, etc.
+
+IQ] In which dir all the external software's?
+
+Ans: /opt
+
+
+
+
+
+Linux commands
+==============
+
+what is command?
+
+In Linux, a command is a specific instruction given to the operating system to perform a task.
+
+what is a program?
+
+It is a collection of instructions
+
+
+clear
+-----
+
+The clear command in Linux is used to clear the terminal screen. It removes all previous output and gives you a clean, empty screen to work with.
+
+
+
+uname
+—-----
+
+The uname command in Linux is used to display system information. It provides details about the operating system, kernel version, hardware architecture, and more.
+
+
+man [manual pages]
+-----
+The man command in Linux is used to display the manual pages for other commands, programs, and system calls. It's a helpful way to access documentation directly from the terminal.
+
+
+man -f grep
+man ls
+
+
+
+whoami 
+----------
+The whoami command in Linux is a simple utility that displays the username of the currently logged-in user. It’s particularly useful for confirming your identity in a multi-user environment or after switching users.
+
+
+pwd[print working directory]
+-----
+pwd command in Linux stands for "print working directory." It displays the current directory you are in when using the terminal. This is particularly useful for navigating the filesystem and ensuring you know your current location within it.
+
+pwd
+
+
+
+history
+---------
+
+The history command in Linux is used to display a list of commands that have been entered in the current shell session. It can be extremely useful for recalling previous commands, debugging, or re-running tasks without having to retype everything.
+
+
+Display all history: history
+Clear history: history -c
+Display last N commands: history N
+Search history: history | grep <command>
+Run the last command: !!
+Run a specific command by line number: !<line_number>
+Run command that starts with a string: !<string>
+Delete the command for specific number: history -d 500
+
+
+
+
+
+sudo su –
+-----------
+switch to root user
+
+How to switch to normal user ec2-user?
+
+exit
+
+
+
+who
+---
+
+Shows who is logged on the system along with their login details.
+
+id
+--
+
+Provides more detailed information about the user, including user ID (UID), group ID (GID), and group memberships.
+
+
+groups
+------
+
+Displays the groups that the current user belongs to.
+
+
+
+
+
+mkdir 
+------
+
+The mkdir command in Linux is used to create new directories. It's a straightforward but essential command for organizing files within the filesystem. 
+
+
+
+mkdir four
+mkdir -v five
+mkdir one two three
+mkdir one/two/three  → two no such file or directory
+mkdir -p one/two/three
+mkdir "kk funda"
+mkdir -m 755 public
+
+ls
+—
+
+The ls command in Linux (and Unix-like systems) is used to list the contents of a directory. It shows files, directories, and other file system objects in a specified directory or the current working directory if no directory is specified.
+
+
+ls
+ 
+ls -l  [Long Listing Format]
+ls -a  [All files]
+ls -lh [Human readable format]
+ls -r  [Reverse Order]
+ls -t [Sort by time]
+ls -R: List files and directories recursively.
+ls -i [inode: DS and store the file and dir information]
+
+cd
+—
+cd Documents
+cd /
+cd one/two/three
+cd ../home
+cd ../..
+
+cd or cd ~ —> Directly move to home directory 
+
+absolute path: /home/user/documents
+relative path: documents/demo
+
+cd -  —> current to previous and previous to current
+
+
+
+touch 
+------- 
+Used to create an empty file.
+touch demo.txt
+touch one two three
+
+
+rmdir 
+------ 
+rmdir test → empty directory only
+
+rm 
+—
+The rm command is used to remove files and directories, regardless of whether they are empty or not.
+
+rm file_name
+rm -rf directory_name
+
+
+
+vi 
+–
+The vi command is a powerful and widely used text editor in Linux and Unix-like operating systems
+
+save:
+
+dont save:
+
+
+
+
+
+
+cat 
+—-
+
+The cat command in Linux is used to concatenate and display the contents of files.
+
+
+cat jayesh.txt
+cat file1 file2
+cat * 
+cat -n file_name
+cat > newfile_name  —> create a new file add content to this, ctrl+D
+cat >> existfile.txt
+
+>file.txt  —> Nullify the file
+
+cat app1.log app2.log > merged_file.txt  —> Override
+cat file_name1 >> file_name2 —-> append
+
+
+tac file_name
+
+cp : It will copy file contents and dir to one dir to another dir
+—-
+ 
+cp devops.txt DevOps/
+cp -R Python DevOps/
+
+Requirement: How to copy all the java file to dir
+
+
+
+mv [renaming and moving one dir to another dir]
+—-
+mv python.txt devops.txt
+mv DevOps/ Python/
+
+
+tail
+—
+used to display last N number of lines in a file
+tail file.txt —> last 10 lines displayed
+
+tail -n 3 state.txt
+or
+tail -3 state.txt
+tail state.txt capital.txt
+tail state.txt -q capital.txt  --> To skip the second file message
+
+
+head
+—----
+used to display first N number of lines in a file
+head file.txt —> first 10 lines displayed
+
+head -n 3 state.txt
+or
+head -3 state.txt
+head state.txt capital.txt
+head state.txt -q capital.txt
+
+IQ] we have 100 lines file, How to display 35 to 50 lines of data?
+
+Ans:  head -50 file.txt | tail -15 
+
+sort command
+—----------------
+sort file.txt
+sort -r example.txt
+sort -k 2 data.txt  → second column sorted
+
+sort -u file.txt  --> Remove duplicates
+
+grep
+—---
+grep  "UNix" abc.txt
+grep -i "UNix" abc.txt
+grep -c "unix" abc.txt  find the number of lines that matches
+
+grep -l "unix"  * —>display the files that contain the given string/pattern.
+grep -w "unix" abc.txt → search all words
+
+grep -o "unix" abc.txt  —> only matched content
+
+grep -n "unix" abc.txt  —> shows the line number
+grep -v "unix" abc.txt  → lines will display without matching
+
+grep -B5 "error" demo.txt
+grep -A5 "error" demo.txt
+grep -C5 "error" demo.txt  → before and after
+
+grep -iR geeks /home/geeks
+
+
+wc
+—
+It is used to find out the number of lines, word count, byte and characters count in the files specified in the file arguments.
+By default it displays four-columnar output.
+First column shows number of lines present in a file specified, second column shows number of words present in the file, third column shows number of characters present in file and fourth column itself is the file name which are given as argument.
+wc abc.txt
+wc -l state.txt  → number of lines
+wc -w state.txt number of words
+wc -c state.txt number of words → bytes[characters]
+
+
+
+umask [user mask]
+—----------------------
+            umask  default file	default dir
+—-----------------------------------------------
+root          0022        644              755
+normal        0022        644              755
+  RHEL 9.x —-> umask value is same
+
+Base permissions for file is: 0666
+                                          (-)0022
+                                       —-------------
+                                               644
+                                      —-----------------
+
+Base permissions for dir is: 0777
+                                          (-)0022
+                                       —-------------
+                                               755
+                                      —-----------------
+
+r —> read  →4
+w —> write → 2
+x —> execute →1
+
+create one dir and file —> explain the permissions
+
+How to change the umask value?
+only root user
+umask →display umask value
+umask 222 
+
+NOTE: permissions are not going to change for previous files and directories.
+
+
+
+to understand more
+===================
+
+Understanding File Permissions
+In Linux, each file and directory has three types of permissions:
+
+Read (r): Permission to read the file or list the directory.
+Write (w): Permission to modify the file or add/remove files in a directory.
+Execute (x): Permission to execute a file or access a directory.
+Permissions can be assigned to three types of users:
+
+User (u): The owner of the file.
+Group (g): The group associated with the file.
+Others (o): All other users.
+Permission Representation
+Permissions can be represented in two ways:
+
+Symbolic Notation:
+
+r: Read
+w: Write
+x: Execute
+-: No permission
+Example: -rwxr-xr-- indicates:
+
+User has read, write, and execute permissions.
+Group has read and execute permissions.
+Others have read permission.
+Numeric (Octal) Notation:
+
+Permissions can also be represented as a three-digit number.
+Each permission is represented by a binary digit:
+Read = 4
+Write = 2
+Execute = 1
+Example: rwx = 4 + 2 + 1 = 7, r-x = 4 + 0 + 1 = 5, r-- = 4 + 0 + 0 = 4
+
+
+
+
+
+chmod
+—-------
+The chmod command in Linux is used to change the permissions of files and directories. It stands for "change mode" and allows users to define who can read, write, or execute a file.
+
+
+
+user  group  others
+rwx	   r_x   rw_
+
+
+chmod 000 devops.txt
+
+cat devops.txt  → to see
+
+
+chmod 444 devops.txt
+    or
+chmod +r devops.txt
+
+
+chmod 766 devops.txt
+     or 
+chmod u+rwx,go+rw devops.txt
+
+
+chmod 777 devops.txt
+   or
+chmod ugo+rwx devops.txt
+
+
+chmod u+x file.txt  # Adds execute permission for the user
+chmod g+w file.txt  # Adds write permission for the group
+
+
+chmod o-r file.txt  # Removes read permission for others
+chmod u-w file.txt  # Removes write permission for the user
+
+
+chmod u=rwx,g=rx,o=r file.txt  # Sets permissions explicitly
+
+
+chmod -v 644 file.txt --> what changes done it will show.
+
+
+
+
+NOTE: user has write permission , But unable to open why? pls check the read permmission
+
+
+Note : if you want you want to remove use [ - ]
+
+
+IQ] what is the diff between 400 and ugo+r
+
+
+
+
+Directories
+—-----------
+chmod 444 DevOps/ [Only parent dir permissions will change]
+chmod ugo+x DevOps/
+
+
+ls -lrth DevOps/
+
+chmod -R 444 DevOps/ → Sub directories will change
+
+ Q: 777 [numbers will override]
+     ugo+rwx [ will not override]
+
+chown  [ONLY ROOT USER can used]
+======
+
+The chown command in Linux is used to change the ownership of files and directories. The name stands for "change owner." This command allows you to specify a new owner (and optionally a new group) for one or more files or directories.
+
+
+chown root devops.txt   → Run from Root
+
+ sudo su -  —> pointing to root user home dir
+ sudo su      —> pointing to the normal user only
+
+what is the root user home directory?
+
+/ —> parent dir or root dir
+/home/root  —> in home normal users will store
+/root  —> root user home directory
+
+
+sudo chown root devops.txt
+sudo chown -R root DevOps
+
+chown root *.java
+
+
+
+
+chgrp [only root users]
+======
+
+chgrp wheel devops.txt
+
+cat /etc/group  —> all the groups available
+
+chgrp -R wheel DevOps
+
+chown ec2-user:ec2-user devops.txt --> both at a time change for file
+chown ec2-user:ec2-user DevOps  --> both at a time change for dir
+
+
+
+
+
+file [check the what type of file]
+====
+file demo.txt
+file test.txt
+
+
+
+diff command
+============
+
+ln [link]
+========
+
+The ln command in Linux is used to create links between files. There are two types of links: hard links and symbolic (or soft) links.
+
+
+
+jio
+/var/lib/logs/bill.log
+
+/tmp/
+
+ln originalfile linkfile   —>HARD LINK
+ln -s originalfile linkfile   —>SOFT LINK
+
+hard link                               soft link[symbolic link]
+—---------      		        	—----------------------------
+1. inode number is same                            1. inode number is differnet
+2. original file delete, we can access normal file 2. soft not possible
+3. It only for files		                       3. Its for files and directories
+4. data is in sync                                 4. data is in sync
+
+ln devops.txt hardlink.txt
+ln -s devops.txt softlin.txt    —> It will start with L 
+
+
+echo 
+—----
+echo hello java
+echo hello        java
+echo "hello       java"
+
+
+tr[translate] command
+—---------------------
+
+cat demo.txt |sort |tr [a-z] [A-Z]  --> lower case to uppercase.
+
+
+
+
+
+
+
+Linux editors
+===========
+vi
+—
+
+vi demo.txt
+:wq
+:q!
+:q
+
+vim
+—-
+vim demo.txt
+sudo su -
+yum install vim -y
+vim demo.txt
+what is the diff b/w vi and vim?
+sudo su -
+cp /etc/sudoers /home/ec2-user
+ls -l
+chown ec2-user:ec2-user sudoers
+chmod 755 sudoers
+exit
+
+
+NOTE:   :se nu  or :se nonu
+
+goto to line number
+—----------------------
+:90
+:87
+
+to search the data
+—-------------------
+/data
+How to delete line?
+—---------------------
+dd in cmd mode
+press u for undo
+
+
+nano
+—---
+nano demo.txt
+yum install nano -y
+nano demo.txt
+
+ctrl+o  → to save
+ctrl+x  → close the file
+
+find
+—-
+How to search empty files in the current directory?
+find . -type f -empty
+find ~ -type f -empty
+find /tmp -type f -empty
+#find / -type f -empty
+
+find . -type d -name <dirName>
+
+
+find . -name deployment.yaml
+find . -name deployment.yaml → ignore case 
+find . -type f -perm 0777
+find . -mtime 1 : It will find all the files modified exact 1 day in current dir
+find . -mtime -1 : It will find all the files modified less than 1 day in current dir
+find . -mtime +1 : It will find all the files modified more than 1 day in current dir
+
+find ./ -type f -name "*.txt"
+
+sed command [stream editor ]
+—-------------------------------------
+
+->searching, find and replace, insertion or deletion. 
+-> SED you can edit files even without opening them
+
+$sed 's/unix/linux/' abc.txt  →Replacing or substituting string
+
+$sed 's/unix/linux/2' abc.txt → Replacing the nth occurrence of a pattern in a line
+
+$sed 's/unix/linux/g' abc.txt  →Replacing or substituting string globally
+
+$sed '3 s/unix/linux/' abc.txt  →Replacing string on a specific line number
+
+$sed '3 s/am/was/p' sed.txt →Duplicating the replaced line with /p flag
+
+$ sed -n 's/am/was/p' sed.txt  → printing only the replaced lines
+
+$sed '1,3 s/unix/linux/' abc.txt  →Replacing string on a range of lines
+
+$ sed '5d' filename.txt → Deleting lines from a particular file
+
+$ sed '3,6d' filename.txt → To Delete line from range x to y
+
+
+who [diaplay the current users working on system]
+—--
+who -H  —> Header will be displayed
+
+w
+==
+cat /proc/cpuinfo  —> To get the cpu info
+single core cpu >1 —> more cpu usage
+load average: 0.08, 0.15, 0.16
+            1st min, 5th min, 15th min
+
+uptime [to check the load avg]
+=====
+
+users [To list the users who are already logged in]
+====
+whoami
+=======
+
+whereis
+=======
+binary files
+and manual pages
+
+whereis mkdir
+/usr/bin/ls  → binary files
+ /usr/share/man/man1/ls.1.gz → Manual pages
+
+date
+====
+date
+sudo date -s “20240617” → to change the date
+
+
+timedatectl  → to see the time zone
+=========
+
+df
+==
+df
+df -h
+df -Th
+NOTE: temp directory need to clean on weekly basis
+
+du
+==
+du 
+du -h Ansible/
+du -sh Ansible/ —> summary of only main directory
+
+
+
+
+hostname[ every server has different]
+=========
+
+ip-172-31-32-138.ap-south-1.compute.internal
+hostname -i [display only ip address]
+
+
+
+
+
+ifconfig
+======
+-> command not found
+sudo su -
+yum install ifconfig -y  —-> unable to install
+yum install net-tools -y →installed
+exit
+ifconfig
+ip a [detailed information]
+
+Dont relay of the host ip , It always changes
+—------------------------------------------------------------
+#hostname kkfunda.com
+#hostname -i [[see here ip changed]
+
+whatis
+======
+→ man gives more information, whatis giving less information
+whatis ls
+whatis mkdir
+
+
+
+service
+======
+jenkins —>jenkins
+oracle db → oracle 
+Appache http server —>httpd
+                                  —>crond
+                                  —> sshd
+
+How to display listof services available
+=================================
+systemctl list-unit-files  ->type q for quit
+
+service service_name options(start|stop|status|restart)
+systemctl options servicename
+ex: systemctl status sshd
+
+what is the diff?
+—-------------------
+systemctl —> RHEL 7.x
+service —> old one
+
+service sshd start [Only root user]
+service sshd stop
+
+last
+===
+last
+last -R ec2-user  → to see for particular user
+last -F  → login logout times for user
+
+
+To see how much time all users logged in.
+NOTE: dont tell lays to manager.
+
+===============================================
+
+NOTE: In linux for all the commands one processes, one process will be created
+
+ps[process status]
+===
+ps
+Result contains four columns of information. Where, 
+PID – the unique process ID 
+TTY – terminal type that the user is logged into 
+TIME – amount of CPU in minutes and seconds that the process has been running 
+CMD – name of the command that launched the process.
+ps -a 
+ps -ef  —> formatted way it will display for all the users
+
+How to get only particular user process ids
+—--------------------------------------------------------------
+ps -ef|grep -i “ec2-user”
+ps -f|grep -i “jenkins”
+
+kill 
+===
+
+kill -l [multiple signals]
+
+kill -9 processid 
+kill -ef |grep “tomcat”
+
+NOTE: kill used for other purposes also
+
+
+
+
+top [Monitor the server resource utilization]
+—
+top
+NOTE: hard disk utilization , we are seeing with df -h command , top command used to display cpu information
+
+
+zip
+===
+zip -r ansible.zip Ansible/ 
+
+unzip
+=====
+rm -r Ansible/
+unzip ansible.zip
+
+tar
+===
+tar -cvf ansible.tar  Ansible [create verbose filesystem]
+tar -xvf ansible.tar  Ansible [extract verbose filesystem]
+
+
+
+
+useradd [creating users]
+====================
+only ROOT user can execute
+
+ls -l /home
+sudo useradd kkfunda
+cat /etc/passwd	 —> To see user information
+cat /etc/group   —-> Group infomation
+cat /etc/shadow  → user credentials
+
+
+
+RHEL 7.x → UID —> 1000
+RHEL → UID —>500 
+
+
+
+passwd [root user]
+======
+
+cat /etc/shadow [Here all passwords information will store]
+passwd kkfunda
+
+To change for particular user as a normal user
+
+$passwd
+old
+new
+new confirmation
+
+
+chage
+=====
+chage kkfunda  —> set the expiry date
+cat /etc/shadow —> to see attributes are updated or not.
+
+
+
+
+
+======================================================
+
+
+How to uninstall a package?
+===========================
+
+yum remove tree -y
+
+    or
+
+dnf remove tree -y
+
+
+groupadd devops
+==============
+/etc/group —->store all group information, for user also one group is created.
+→ In /home/  for only users
+
+usermod [add users to the group]
+========
+sudo usermod -aG devops kkfunda
+
+sudo lid -g devops  —> How many users are added to this group
+
+How to check user belongs to how many groups?
+========================================
+id kkfunda
+or
+groups kkfunda
+
+
+
+su [switch user]
+=============
+sudo su -  —>switched to root user
+Normal user to normal user —> password required
+Normal user to root user  —-> password required
+Root user to normal user —-> password not required
+ex:
+
+su - kkfunda
+su - ec2-user
+su - root
+sudo
+====
+
+
+How to give sudo access to normal user?
+
+sudo cat /etc/sudoers
+
+diff b/w vi and visudo
+—---------------------------
+#visudo —-> file is going to lock until user while update[Add user here], Add kkfunda user as a root
+
+sudo useradd krishna —-> run it from kkfunda user
+sudo passwd krishna —-> Give password to krishna
+
+userdel
+=======
+sudo userdel -r krishna
+
+groupdel 
+========
+groupadd QA
+sudo groupdel QA —-> delete the group
+
+NOTE: 
+what is the diff b/w
+ sudo su -  —> not ask password
+ su -  → will ask password
+su - root → will ask password
+
+
+more command [loads the entire file]
+—------------------
+more filename
+
+Enter key: to scroll down line by line.
+Space bar: To go to the next page.
+b key: To go to back one page. 
+
+less command [not loading the entire file]
+—-----------------
+2. Screen Navigation
+Ctrl + f : forwards one window
+Ctrl + d : forwards half window
+Ctrl + b : backwards one window
+Ctrl + u : backwards half window
+3. Line Navigation
+to move forward or backward line by line
+j : forward by one line
+k : backward by one line
+
+uniq command
+=============
+Removes the consecutive duplicates.
+
+ wc -l < Names.txt
+
+tee command
+============
+
+cat file.txt | tee copy.txt
+
+zcat command
+============
+zgrep command
+=============
+
+ nohup sh demo.sh &
+====================
+ping google.com
+================
+yum update
+==========
+lscpu —>display the cpu information
+=====
+
+lshw →to see the hardware information
+====
+
+sudo shutdown
+=============
+watch -d free
+=============
+cut command
+===========
+cut -b 1,2,3 state.txt
+cut -b 1-3,5-7 state.txt
+ cut -c 2,5,8 states.txt  —> 2nd, 5th and 8th characters.
+cut -c 1-7 state.txt
+cut -c 1- state.txt —> All characters
+cut -c -5 state.txt —> first 5 characters
+
+
+
+cal
+==
+cal -y —> to shows the complete year
+cal 08 2023
+cal 1994
+ cal -3 [Shows calendar of previous, current and next month]
+ cal -j 2024 [1to 366]
+
+
+free
+=====
+
+The free command in Linux is used to display information about the system's memory usage. It provides details about total memory, used memory, free memory, and memory used by buffers/cache, which can help you monitor how your system's RAM is being utilized.
+
+Useful options for the free command:
+
+free -h: Displays the memory in a human-readable format (e.g., GB, MB).
+free -m: Shows the memory in megabytes.
+free -g: Shows the memory in gigabytes.
+free -s <seconds>: Repeats the output every <seconds>.
+free -t: Shows the total memory (including swap).
+
+
+
+AWK command
+============
+ 
+-> awk '{print}' table.txt  —-> display the complete data. 
+-> awk '/manager/ {print}' table.txt  —> manger matches.
+-> awk '{print $0}' table.txt  → Display the complete data.
+→  awk '{print $1,$4}' table.txt
+
+→ awk '{print NR,$1,$4}' table.txt   --> NR means row number
+
+→ awk '{print NR,$1,$NF}' table.txt  → NF means last field 
+—> awk 'NR==3, NR==6 {print NR,$0}' table.txt   --> row 3 to 6
+→ awk '{print $1,"----->",$4}' table.txt
+
+-> awk '$3 > 50 {print $1, $2}' table.txt
+
+-> awk 'NR >= 10 && NR <= 20' file.txt --> This will print lines 10 to 20 from file.txt
+
+-> awk '{print $1, $2 * $3}' file.txt
+
+
+awk command use cases
+======================
+
+1. Log File Analysis
+--------------------
+system administrators often use awk to analyze log files (e.g., Apache logs, system logs) for errors or performance metrics.
+
+Example: Find the number of error entries in an Apache log:
+
+
+awk '$9 >= 400 {print $0}' access.log
+
+This command looks for HTTP status codes greater than or equal to 400 (indicating errors like 404 or 500) and prints the log entries with errors.
+
+2. User Data Extraction
+-----------------------
+
+who -u | awk '{print $1, $3, $4}'
+
+This extracts the username, login date, and login time for users currently logged in.
+
+
+3. Server Log Parsing (Parsing and Filtering Logs)
+--------------------------------------------------
+
+awk '$1 == "192.168.1.100" {print $0}' access.log
+
+ex:
+192.168.1.1 - - [01/Feb/2025:12:34:56 +0000] "GET /index.html HTTP/1.1" 200 2345 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+192.168.1.1 - - [01/Feb/2025:12:34:56 +0000] "GET /index.html HTTP/1.1" 200 2345 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+
+192.168.1.100 - - [01/Feb/2025:12:34:56 +0000] "GET /index.html HTTP/1.1" 200 2345 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+
+192.168.1.1 - - [01/Feb/2025:12:34:56 +0000] "GET /index.html HTTP/1.1" 200 2345 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+
+192.168.1.1 - - [01/Feb/2025:12:34:56 +0000] "GET /index.html HTTP/1.1" 200 2345 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+
+
+
+This filters log entries for requests coming from IP address 192.168.1.100.
+
+
+4. Monitoring Disk Usage
+------------------------
+
+df -h | awk '{gsub("%", "", $5); if ($5+0 > 18) print $1, $5 "%"}'
+
+
+
+This prints all filesystems that are over 90% full, which is useful for system monitoring and alerting.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wget
+====
+
+The wget command in Linux is a widely used tool for downloading files from the web. It supports downloading via HTTP, HTTPS, and FTP protocols, and it can handle things like resuming interrupted downloads or downloading multiple files at once.
+
+
+Ex: wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+
+
+
+
+
+cron tab: scheduling tasks
+===========================
+
+
+syntax:
+-------
+
+* * * * * /path/to/command
+- - - - -
+| | | | |  
+| | | | +---- Day of the week (0 - 6) (Sunday = 0)
+| | | +------ Month (1 - 12)
+| | +-------- Day of the month (1 - 31)
+| +---------- Hour (0 - 23)
++------------ Minute (0 - 59)
+
+
+
+→ Crontab is available for all the users.
+crontab -l  : How many jobs are currently configure.
+crontab -e  —>edit the crontab
+crontab -r  —> remove the crontab
+#crontab -l -u kkfunda  → to see other users crontab, only root user can run this.
+
+$sudo touch /etc/cron.allow  —> remove cron access to normal user.
+#sudo vi /etc/cron.allow  —> add user here.
+
+vi hello.sh
+
+echo “welcome to KK FUNDA”
+echo “today date is:”
+date
+uptime
+
+How to run the shell script?
+
+sh hello.sh  —-> It will run
+./hello.sh    —--> don't have exec permissions → chmod u+x hello.sh
+
+*/1 * * * * /home/ec2-user/hello.sh  > /home/ec2-user/hello.log
+
+>----> redirect std o/p
+
+crontab -e —-> paste that command
+crontab -l
+NOTE: we dont want to loose the previous o/p[ >> ]  → append the standard o/p.
+
+
+
+
+
+File descriptors
+============
+0 —> std i/p
+1 —> std o/p
+2 —> std error
+
+2>&1  —> both output and error will be stored in that file.
+
+NOTE: If you want to stop the cron job, you can use #(comment).
+
+crontab -ir  —-> interactive remove
+
+IQ] why cron job is not running even i given correct format?
+
+service crond.service status  —> service should up and running.
+
+cat /var/log/cron   —> cron log is showing
+
+
+
+
+
+
+
