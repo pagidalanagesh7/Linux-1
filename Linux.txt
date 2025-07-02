@@ -74,6 +74,11 @@ Distibrutions/flavors
 4. Debian
 4. Suse Linux
 etc
+
+Ubuntu: ubuntu
+Debian: admin or debian
+CentOS: centos
+RHEL: ec2-user or root
 -------------------------------------------
 
 
