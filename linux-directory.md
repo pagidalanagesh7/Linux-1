@@ -63,30 +63,30 @@ The top-level directory. Everything on a Linux system is located under `/`.
 
 ```plaintext
 /
-├── bin
-├── boot
-├── dev
-├── etc
-├── home
+├── bin        → Essential user binaries (e.g. ls, cp)
+├── boot       → Boot loader files (e.g. vmlinuz, grub)
+├── dev        → Device files
+├── etc        → System configuration files
+├── home       → User home directories
 │   ├── user1
 │   └── user2
-├── lib
-├── lib64
-├── media
-├── mnt
-├── opt
-├── proc
-├── root
-├── run
-├── sbin
-├── srv
-├── sys
-├── tmp
-├── usr
-│   ├── bin
-│   ├── lib
-│   ├── sbin
-│   └── share
-└── var
-    ├── log
-    └── spool
+├── lib        → Essential shared libraries
+├── lib64      → 64-bit libraries
+├── media      → Mount points for removable media
+├── mnt        → Temporary mount points
+├── opt        → Optional application software packages
+├── proc       → Virtual filesystem for processes and kernel
+├── root       → Root user's home directory
+├── run        → Runtime data
+├── sbin       → System binaries
+├── srv        → Data for services (e.g. web, FTP)
+├── sys        → Interface to kernel
+├── tmp        → Temporary files
+├── usr        → Secondary hierarchy (apps and tools)
+│   ├── bin        → Non-essential user binaries
+│   ├── lib        → Libraries for /usr/bin
+│   ├── sbin       → Non-essential system binaries
+│   └── share      → Shared data
+└── var        → Variable data (e.g. logs, spool)
+    ├── log        → Log files
+    └── spool      → Print jobs, mail queues
